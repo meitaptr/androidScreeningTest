@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_main"
+    app:startDestination="@id/screen1Fragment">
+
+    <action
+        android:id="@+id/actionToScreen1Fragment"
+        app:destination="@id/screen1Fragment" />
+
+    <fragment
+        android:id="@+id/screen1Fragment"
+        android:name="com.example.androidscreeningtest.presentation.screen1.Screen1Fragment"
+        android:label="Screen 1 Fragment"
+        tools:layout="@layout/fragment_screen1">
+        <action
+            android:id="@+id/actionToScreen2Fragment"
+            app:destination="@id/screen2Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/screen2Fragment"
+        android:name="com.example.androidscreeningtest.presentation.screen2.Screen2Fragment"
+        android:label="Screen 2 Fragment"
+        tools:layout="@layout/fragment_screen2">
+        <action
+            android:id="@+id/actionToScreen4Fragment"
+            app:destination="@id/screen4Fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/screen4Fragment"
+        android:name="com.example.androidscreeningtest.presentation.screen4.Screen4Fragment"
+        android:label="Screen 4 Fragment"
+        tools:layout="@layout/fragment_screen4">
+    </fragment>
+</navigation>

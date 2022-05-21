@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="main_apricot">#ED8975</color>
+    <color name="dark_apricot">#5f372f</color>
+    <color name="darklight_apricot">#be6e5e</color>
+    <color name="lilac">#8975ed</color>
+
 </resources>
