@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/FirstFragment">
+
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="com.example.androidscreeningtest.Screen2Fragment"
+        android:label="Screen 2"
+        tools:layout="@layout/fragment_screen2new">
+
+        <action
+            android:id="@+id/action_Event"
+            app:destination="@id/SecondFragment" />
+
+        <action
+            android:id="@+id/action_Guest"
+            app:destination="@+id/Screen4Fragment"/>
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="com.example.androidscreeningtest.Screen3Fragment"
+        android:label="EVENTS"
+        tools:layout="@layout/fragment_screen3">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+
+        <action
+            android:id="@+id/action_toScreenMaps"
+            app:destination="@+id/Screen5Fragment"/>
+    </fragment>
+
+    <fragment
+        android:id="@+id/Screen4Fragment"
+        android:name="com.example.androidscreeningtest.Screen4Fragment"
+        android:label="Screen 4 Fragment"
+        tools:layout="@layout/fragment_screen4">
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/Screen5Fragment"
+        android:name="com.example.androidscreeningtest.Screen5Fragment"
+        tools:layout="@layout/fragment_screen5">
+
+        <action
+            android:id="@+id/action_back_toEvents"
+            app:destination="@+id/SecondFragment"/>
+
+    </fragment>
+</navigation>

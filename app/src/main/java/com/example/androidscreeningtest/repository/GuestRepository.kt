@@ -3,16 +3,16 @@ package com.example.androidscreeningtest.repository
 import androidx.lifecycle.MutableLiveData
 import com.example.androidscreeningtest.data.Guest
 import com.example.androidscreeningtest.networking.GuestApi
-import com.example.androidscreeningtest.networking.Resource
-import com.example.androidscreeningtest.networking.ResponseHandler
+//import com.example.androidscreeningtest.networking.Resource
+//import com.example.androidscreeningtest.networking.ResponseHandler
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 /** 21/05/2022 Created by: meitaptr */
 open class GuestRepository(
-    private val guestApi: GuestApi,
-    private val responseHandler: ResponseHandler
+//    private val guestApi: GuestApi,
+//    private val responseHandler: ResponseHandler
 ) {
     var resWeatherData: MutableLiveData<Guest>? = null
 

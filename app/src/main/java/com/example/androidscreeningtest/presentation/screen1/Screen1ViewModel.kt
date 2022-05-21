@@ -3,7 +3,7 @@ package com.example.androidscreeningtest.presentation.screen1
 import android.app.Application
 import androidx.lifecycle.*
 import com.example.androidscreeningtest.data.Guest
-import com.example.androidscreeningtest.networking.Resource
+//import com.example.androidscreeningtest.networking.Resource
 import com.example.androidscreeningtest.repository.GuestRepository
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.Dispatchers
@@ -11,8 +11,9 @@ import kotlinx.coroutines.Job
 import java.util.logging.Logger
 
 /** 09/05/2022 Created by: meitaptr */
-class Screen1ViewModel(application: Application ,private val guestRepository: GuestRepository) : AndroidViewModel(application) {
+class Screen1ViewModel() : ViewModel() {
     val TAG = "Screen1ViewModel"
+    private val guestRepository = GuestRepository()
 
     private val guestListMutable = MutableLiveData<List<Guest>>()
     val guestList: LiveData<List<Guest>> = guestListMutable

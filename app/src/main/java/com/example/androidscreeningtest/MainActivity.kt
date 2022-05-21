@@ -1,11 +1,10 @@
 package com.example.androidscreeningtest
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.*
 import com.example.androidscreeningtest.databinding.ActivityMainBinding
 import com.example.androidscreeningtest.presentation.screen1.Screen1ViewModel
 import kotlinx.android.synthetic.main.activity_main.*
@@ -26,7 +25,10 @@ class MainActivity : AppCompatActivity() {
 //        navController.navigate(direction)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        mainActivityViewModel = ViewModelProvider(this@MainActivity, ViewModelProvider.AndroidViewModelFactory.getInstance(application))[Screen1ViewModel::class.java]
+        val factory = MainViewModelFactory()
+        mainActivityViewModel = ViewModelProviders.of(this, factory)[Screen1ViewModel::class.java]
+
+//        mainActivityViewModel = ViewModelProvider(this@MainActivity, ViewModelProvider.AndroidViewModelFactory.getInstance(application))[Screen1ViewModel::class.java]
 
 //        mainActivityViewModel = ViewModelProvider(this)[Screen1ViewModel::class.java]
 
@@ -34,16 +36,32 @@ class MainActivity : AppCompatActivity() {
             Logger.e(TAG, "btn next clicked")
 //            val direction =  Screen1FragmentDirections.actionToScreen2Fragment()
 //            findNavController().navigate(direction)
+            startActivity(Intent(this, SecondActivity::class.java))
         }
 
-        lifecycleScope.launch {
-            Logger.e(TAG, "launch viewmodel getlist")
-            mainActivityViewModel.getGuestList()
+//        lifecycleScope.launch {
+//            Logger.e(TAG, "launch viewmodel getlist")
+//            mainActivityViewModel.getGuestList()
+//        }
+
+        btn_check_palindrome.setOnClickListener {
+            val pal = et_palindrome.text.toString().trim()
+            if (isPalindromeString(pal))
+                Logger.e(TAG, "$pal is palindrome")
+            else Logger.e(TAG, "$pal is not palindrome")
         }
 
         mainActivityViewModel.resWeatherData?.observe(this, Observer {
             Logger.e(TAG, "mainActivityViewModel observe")
 
         })
+    }
+
+    private fun isPalindromeString(inputStr: String): Boolean {
+        val sb = StringBuilder(inputStr)
+
+        val reverseStr = sb.reverse().toString()
+
+        return inputStr.equals(reverseStr, ignoreCase = true)
     }
 }
