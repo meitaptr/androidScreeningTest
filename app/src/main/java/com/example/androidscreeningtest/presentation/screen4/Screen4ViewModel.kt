@@ -1,35 +1,33 @@
-package com.example.androidscreeningtest.presentation.screen1
+package com.example.androidscreeningtest.presentation.screen4
 
-import android.app.Application
 import androidx.lifecycle.*
 import com.example.androidscreeningtest.data.Guest
-//import com.example.androidscreeningtest.networking.Resource
+import com.example.androidscreeningtest.data.ResGuest
 import com.example.androidscreeningtest.repository.GuestRepository
-import kotlinx.coroutines.CoroutineExceptionHandler
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.Job
-import java.util.logging.Logger
 
 /** 09/05/2022 Created by: meitaptr */
-class Screen1ViewModel() : ViewModel() {
-    val TAG = "Screen1ViewModel"
+class Screen4ViewModel : ViewModel() {
+    val TAG = "Screen4ViewModel"
     private val guestRepository = GuestRepository()
 
     private val guestListMutable = MutableLiveData<List<Guest>>()
     val guestList: LiveData<List<Guest>> = guestListMutable
 
-    var resWeatherData: LiveData<Guest>? = null
+    var resGuestData: LiveData<Guest>? = null
+    var resListGuestData: LiveData<List<Guest>>? = null
+    var abc: MutableLiveData<ResGuest>? = null
 
-    val gg = MutableLiveData<List<Guest>>()
+//    init {
+//        com.example.androidscreeningtest.Logger.e(TAG, "iniviewmodel")
+//    }
 
-    init {
-        com.example.androidscreeningtest.Logger.e(TAG, "iniviewmodel")
-    }
-
-    suspend fun getGuestList() {
+    fun getGuestList() {
         com.example.androidscreeningtest.Logger.e(TAG, "getGuestList")
-        val responseWeather = guestRepository.getGuest()
-        resWeatherData = responseWeather
+        val resGuest = guestRepository.getGuest()
+//        guestListMutable.value = resGuest
+//        val a = resGuest
+//        resListGuestData = resGuest
+//        resGuestData = resGuest
 //        gg.switchMap { gg ->
 //            liveData(Dispatchers.IO) {
 //                emit(Resource.loading(null))

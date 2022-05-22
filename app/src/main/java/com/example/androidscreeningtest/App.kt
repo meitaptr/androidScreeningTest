@@ -2,6 +2,7 @@ package com.example.androidscreeningtest
 
 import android.app.Application
 import android.content.Context
+import com.google.gson.Gson
 import timber.log.Timber
 
 /** 21/05/2022 Created by: meitaptr */

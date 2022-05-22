@@ -1,15 +1,14 @@
 package com.example.androidscreeningtest.presentation.screen1
 
-import android.app.Application
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.androidscreeningtest.Logger
 import com.example.androidscreeningtest.R
+import com.example.androidscreeningtest.presentation.screen4.Screen4ViewModel
 import kotlinx.android.synthetic.main.fragment_screen1.*
 import kotlinx.coroutines.launch
 
@@ -17,7 +16,7 @@ import kotlinx.coroutines.launch
 class Screen1Fragment: Fragment(R.layout.fragment_screen1) {
     val TAG = "Screen1Fragment"
 //    override val resourceLayout: Int = R.layout.fragment_screen1
-    private val viewModel: Screen1ViewModel by viewModels()
+    private val viewModel: Screen4ViewModel by viewModels()
 //    private val viewModel by viewModel<Screen1ViewModel>()
 
 //    override fun onInitViews() {

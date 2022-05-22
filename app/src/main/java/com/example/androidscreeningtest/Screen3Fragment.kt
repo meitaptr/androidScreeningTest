@@ -33,7 +33,7 @@ class Screen3Fragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.buttonSecond.setOnClickListener {
-            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
+//            findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
     }
 
@@ -48,7 +48,7 @@ class Screen3Fragment : Fragment() {
                 true
             }
             R.id.action_maps -> {
-                findNavController().navigate(R.id.action_toScreenMaps)
+                findNavController().navigate(R.id.actionToScreen5Fragment)
                 true
             }
             else -> super.onOptionsItemSelected(item)

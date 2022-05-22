@@ -2,6 +2,7 @@ package com.example.androidscreeningtest.networking
 
 import com.example.androidscreeningtest.Constants.BASE_URL
 import com.example.androidscreeningtest.data.Guest
+import com.example.androidscreeningtest.data.ResGuest
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -39,6 +40,6 @@ interface GuestApi {
     }
 
     @GET("users")
-    suspend fun getGuest( @Query("per_page") per_page: Int,
-                             @Query("page") page: Int): Call<Guest>
+    fun getGuest( @Query("per_page") per_page: Int,
+                             @Query("page") page: Int): Call<ResGuest>
 }

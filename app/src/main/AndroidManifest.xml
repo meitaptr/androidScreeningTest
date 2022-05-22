@@ -30,7 +30,7 @@
             android:value="AIzaSyD-wEIBXohxCM25hAg6oNrDTS6m-SWMuZE" />
 
         <activity
-            android:name=".SecondActivity"
+            android:name=".presentation.screen2.SecondActivity"
             android:exported="false"
             android:label="@string/title_activity_second"
             android:theme="@style/Theme.AndroidScreeningTest.NoActionBar" />

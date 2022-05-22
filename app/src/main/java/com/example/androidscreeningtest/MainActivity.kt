@@ -2,66 +2,55 @@ package com.example.androidscreeningtest
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.*
-import com.example.androidscreeningtest.databinding.ActivityMainBinding
-import com.example.androidscreeningtest.presentation.screen1.Screen1ViewModel
+import com.example.androidscreeningtest.presentation.screen2.SecondActivity
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.coroutines.launch
 
 
 class MainActivity : AppCompatActivity() {
     val TAG = "MainActivity"
-//    private val navController by lazy { (navHostFragment as NavHostFragment).findNavController() }
-    private lateinit var mainActivityViewModel: Screen1ViewModel
-    private var binding: ActivityMainBinding? = null
+    private var isPalindrome = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         Logger.e(TAG, "oncreate")
-//        val direction =  NavMainDirections.actionToScreen1Fragment()
-//        navController.navigate(direction)
-
-        binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        val factory = MainViewModelFactory()
-        mainActivityViewModel = ViewModelProviders.of(this, factory)[Screen1ViewModel::class.java]
-
-//        mainActivityViewModel = ViewModelProvider(this@MainActivity, ViewModelProvider.AndroidViewModelFactory.getInstance(application))[Screen1ViewModel::class.java]
-
-//        mainActivityViewModel = ViewModelProvider(this)[Screen1ViewModel::class.java]
 
         btn_next.setOnClickListener {
             Logger.e(TAG, "btn next clicked")
-//            val direction =  Screen1FragmentDirections.actionToScreen2Fragment()
-//            findNavController().navigate(direction)
+//            if (isPalindromeString(et_palindrome.text.toString().trim())) {
+//                if (checkData()) startActivity(Intent(this, SecondActivity::class.java))
+//                else Toast.makeText(this, "Lengkapi data anda terlebih dahulu dan pastikan sudah melakukan pengecekan Palindrome", Toast.LENGTH_LONG).show()
+//            }
+//            else {
+//                Toast.makeText(this, "Lengkapi data anda terlebih dahulu dan pastikan sudah melakukan pengecekan Palindrome", Toast.LENGTH_LONG).show()
+//            }
             startActivity(Intent(this, SecondActivity::class.java))
         }
 
-//        lifecycleScope.launch {
-//            Logger.e(TAG, "launch viewmodel getlist")
-//            mainActivityViewModel.getGuestList()
-//        }
-
         btn_check_palindrome.setOnClickListener {
             val pal = et_palindrome.text.toString().trim()
-            if (isPalindromeString(pal))
+            if (isPalindromeString(pal)) {
+                isPalindrome = true
                 Logger.e(TAG, "$pal is palindrome")
-            else Logger.e(TAG, "$pal is not palindrome")
+                Toast.makeText(this, "Ok! This is palindrome", Toast.LENGTH_LONG).show()
+            }
+            else {
+                isPalindrome = false
+                Logger.e(TAG, "$pal is not palindrome")
+                Toast.makeText(this, "This is NOT palindrome", Toast.LENGTH_LONG).show()
+            }
         }
-
-        mainActivityViewModel.resWeatherData?.observe(this, Observer {
-            Logger.e(TAG, "mainActivityViewModel observe")
-
-        })
     }
 
     private fun isPalindromeString(inputStr: String): Boolean {
         val sb = StringBuilder(inputStr)
-
         val reverseStr = sb.reverse().toString()
-
         return inputStr.equals(reverseStr, ignoreCase = true)
+    }
+
+    private fun checkData(): Boolean {
+        return isPalindrome && et_palindrome.text.isNotEmpty() && et_name.text.isNotEmpty()
     }
 }

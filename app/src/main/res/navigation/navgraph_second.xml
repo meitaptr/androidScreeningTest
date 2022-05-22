@@ -3,43 +3,45 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/FirstFragment">
+    app:startDestination="@id/screen2Fragment">
 
     <fragment
-        android:id="@+id/FirstFragment"
-        android:name="com.example.androidscreeningtest.Screen2Fragment"
+        android:id="@+id/screen2Fragment"
+        android:name="com.example.androidscreeningtest.presentation.screen2.Screen2Fragment"
         android:label="Screen 2"
-        tools:layout="@layout/fragment_screen2new">
+        tools:layout="@layout/fragment_screen2">
 
         <action
-            android:id="@+id/action_Event"
-            app:destination="@id/SecondFragment" />
+            android:id="@+id/actionToScreen5Fragment"
+            app:destination="@id/Screen5Fragment" />
 
         <action
-            android:id="@+id/action_Guest"
+            android:id="@+id/actionToScreen4Fragment"
             app:destination="@+id/Screen4Fragment"/>
     </fragment>
     <fragment
-        android:id="@+id/SecondFragment"
+        android:id="@+id/screen3Fragment"
         android:name="com.example.androidscreeningtest.Screen3Fragment"
         android:label="EVENTS"
         tools:layout="@layout/fragment_screen3">
 
         <action
-            android:id="@+id/action_SecondFragment_to_FirstFragment"
-            app:destination="@id/FirstFragment" />
+            android:id="@+id/actionToScreen2Fragment"
+            app:destination="@id/screen2Fragment" />
 
         <action
-            android:id="@+id/action_toScreenMaps"
+            android:id="@+id/actionToScreen5"
             app:destination="@+id/Screen5Fragment"/>
     </fragment>
 
     <fragment
         android:id="@+id/Screen4Fragment"
-        android:name="com.example.androidscreeningtest.Screen4Fragment"
+        android:name="com.example.androidscreeningtest.presentation.screen4.Screen4Fragment"
         android:label="Screen 4 Fragment"
         tools:layout="@layout/fragment_screen4">
-
+        <action
+            android:id="@+id/actionToSCreen3Fragment"
+            app:destination="@+id/screen3Fragment"/>
     </fragment>
 
     <fragment
@@ -48,8 +50,8 @@
         tools:layout="@layout/fragment_screen5">
 
         <action
-            android:id="@+id/action_back_toEvents"
-            app:destination="@+id/SecondFragment"/>
+            android:id="@+id/actionToSCreen3Fragment"
+            app:destination="@+id/screen3Fragment"/>
 
     </fragment>
 </navigation>
