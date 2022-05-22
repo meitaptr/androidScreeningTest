@@ -1,8 +1,7 @@
-package com.example.androidscreeningtest.networking
+package com.example.androidscreeningtest.domain
 
 import com.example.androidscreeningtest.Constants.BASE_URL
-import com.example.androidscreeningtest.data.Guest
-import com.example.androidscreeningtest.data.ResGuest
+import com.example.androidscreeningtest.data.cloud.ResGuest
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -16,8 +15,6 @@ import java.util.concurrent.TimeUnit
 interface GuestApi {
 
     companion object {
-//        private var BASEURL = "https://api.openweathermap.org/"
-
         private val interceptor : HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
             this.level = HttpLoggingInterceptor.Level.BODY
         }

@@ -1,11 +1,9 @@
-package com.example.androidscreeningtest.data
+package com.example.androidscreeningtest.data.cloud
 
-import android.os.Parcelable
+import com.example.androidscreeningtest.data.cloud.Guest
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
 
 /** 22/05/2022 Created by: meitaptr */
-@Parcelize
 data class ResGuest (
     @SerializedName("page")
     val page: Int,
@@ -17,4 +15,4 @@ data class ResGuest (
     val totalPages: Int,
     @SerializedName("data")
     val listGuest: List<Guest>
-    ) : Parcelable
+    )

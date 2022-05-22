@@ -1,20 +1,16 @@
-package com.example.androidscreeningtest
+package com.example.androidscreeningtest.presentation.screen3
 
 import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.example.androidscreeningtest.R
 import com.example.androidscreeningtest.databinding.FragmentScreen3Binding
 
-/**
- * A simple [Fragment] subclass as the second destination in the navigation.
- */
 class Screen3Fragment : Fragment() {
 
     private var _binding: FragmentScreen3Binding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(

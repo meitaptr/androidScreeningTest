@@ -1,12 +1,9 @@
-package com.example.androidscreeningtest.data
+package com.example.androidscreeningtest.data.cloud
 
-import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
-import kotlinx.android.parcel.Parcelize
 
 /** 21/05/2022 Created by: meitaptr */
 
-@Parcelize
 data class Guest (
     @SerializedName("id")
     val id: Long,
@@ -18,4 +15,4 @@ data class Guest (
     val last_name: String,
     @SerializedName("avatar")
     val avatar: String,
-) : Parcelable
+)

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".presentation.screen1.Screen1Activity">
 
     <TextView
         android:id="@+id/tv"
@@ -19,28 +19,10 @@
         app:layout_constraintTop_toTopOf="parent"
         android:visibility="gone"/>
 
-    <TextView
-        android:id="@+id/tv_name"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
-        android:text="Name"
-        android:layout_marginRight="10dp"
-        android:textAllCaps="false"
-        android:textColor="@color/darklight_apricot"
-        android:layout_marginTop="25dp"
-        android:textSize="18dp"
-        android:paddingLeft="10dp"
-        android:background="@null"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/tv_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="20dp">

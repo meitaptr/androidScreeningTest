@@ -1,10 +1,12 @@
-package com.example.androidscreeningtest
+package com.example.androidscreeningtest.presentation.screen5
 
 import androidx.fragment.app.Fragment
 
 import android.os.Bundle
 import android.view.*
 import androidx.navigation.fragment.findNavController
+import com.example.androidscreeningtest.Logger
+import com.example.androidscreeningtest.R
 
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -18,21 +20,12 @@ class Screen5Fragment : Fragment(), GoogleMap.OnMapClickListener {
     private lateinit var map: GoogleMap
 
     private val callback = OnMapReadyCallback { googleMap ->
-        /**
-         * Manipulates the map once available.
-         * This callback is triggered when the map is ready to be used.
-         * This is where we can add markers or lines, add listeners or move the camera.
-         * In this case, we just add a marker near Sydney, Australia.
-         * If Google Play services is not installed on the device, the user will be prompted to
-         * install it inside the SupportMapFragment. This method will only be triggered once the
-         * user has installed Google Play services and returned to the app.
-         */
         map = googleMap
 
         val zoom = 13f
-        val sydney = LatLng(-6.1770846,106.8310169)
-        googleMap.addMarker(MarkerOptions().position(sydney).title("Marker in Monas"))
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(sydney))
+        val monas = LatLng(-6.1770846,106.8310169)
+        googleMap.addMarker(MarkerOptions().position(monas).title("Marker in Monas"))
+        googleMap.moveCamera(CameraUpdateFactory.newLatLng(monas))
         googleMap.setMinZoomPreference(zoom)
 
         googleMap.setOnMapClickListener(this)
@@ -59,7 +52,7 @@ class Screen5Fragment : Fragment(), GoogleMap.OnMapClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.action_list -> {
-                //findNavController().navigate(R.id.action_back_toEvents)
+                findNavController().popBackStack()
                 true
             }
             else -> super.onOptionsItemSelected(item)
@@ -67,10 +60,10 @@ class Screen5Fragment : Fragment(), GoogleMap.OnMapClickListener {
     }
 
     override fun onMapClick(pos: LatLng) {
-        Logger.e("Maps","new pos $pos")
-
+        Logger.e("Maps", "new pos $pos")
         map.addMarker(MarkerOptions().position(pos).title("$pos"))
-
+        val lat = pos.latitude
+        val long = pos.longitude
 
     }
 }

@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
+    android:id="@+id/navgraph_second"
     app:startDestination="@id/screen2Fragment">
 
     <fragment
@@ -10,7 +10,14 @@
         android:name="com.example.androidscreeningtest.presentation.screen2.Screen2Fragment"
         android:label="Screen 2"
         tools:layout="@layout/fragment_screen2">
-
+        <action
+            android:id="@+id/actionToScreen2Fragment"
+            app:destination="@id/screen2Fragment"/>
+        <argument
+            android:name="username"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
         <action
             android:id="@+id/actionToScreen5Fragment"
             app:destination="@id/Screen5Fragment" />
@@ -21,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/screen3Fragment"
-        android:name="com.example.androidscreeningtest.Screen3Fragment"
+        android:name="com.example.androidscreeningtest.presentation.screen3.Screen3Fragment"
         android:label="EVENTS"
         tools:layout="@layout/fragment_screen3">
 
@@ -46,7 +53,8 @@
 
     <fragment
         android:id="@+id/Screen5Fragment"
-        android:name="com.example.androidscreeningtest.Screen5Fragment"
+        android:name="com.example.androidscreeningtest.presentation.screen5.Screen5Fragment"
+        android:label="Screen 5 Fragment"
         tools:layout="@layout/fragment_screen5">
 
         <action
